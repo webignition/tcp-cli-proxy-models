@@ -17,11 +17,12 @@ class Output
 
     public static function fromString(string $serialisedOutput): self
     {
-        $parts = explode("\n", $serialisedOutput, 2);
+        $parts = explode("\n", $serialisedOutput);
+        $exitCode = (int) (array_pop($parts));
 
         return new Output(
-            ((int) $parts[0]) ?? 0,
-            $parts[1] ?? ''
+            $exitCode,
+            trim(implode("\n", $parts))
         );
     }
 
@@ -42,6 +43,6 @@ class Output
 
     public function __toString()
     {
-        return (string) $this->exitCode . "\n" . $this->content;
+        return $this->content . "\n" . (string) $this->exitCode;
     }
 }
