@@ -100,23 +100,23 @@ class OutputTest extends TestCase
         return [
             'empty, success' => [
                 'output' => new Output(0, ''),
-                'expectedString' => '0' . "\n" . '',
+                'expectedString' => "\n" . '0',
             ],
             'empty, failure 1' => [
                 'output' => new Output(1, ''),
-                'expectedString' => '1' . "\n" . '',
+                'expectedString' => "\n" . '1',
             ],
             'empty, failure 2' => [
                 'output' => new Output(2, ''),
-                'expectedString' => '2' . "\n" . '',
+                'expectedString' => "\n" . '2',
             ],
             'single line, success' => [
                 'output' => new Output(0, 'content'),
-                'expectedString' => '0' . "\n" . 'content',
+                'expectedString' => 'content' . "\n" . '0',
             ],
             'multiple lines, success' => [
                 'output' => new Output(0, "line1\nline2\n\nline4"),
-                'expectedContent' => "0\nline1\nline2\n\nline4",
+                'expectedContent' => "line1\nline2\n\nline4\n0",
             ],
         ];
     }
@@ -133,23 +133,23 @@ class OutputTest extends TestCase
     {
         return [
             'empty, success' => [
-                'serialisedOutput' => '0' . "\n" . '',
+                'serialisedOutput' => "\n" . '0',
                 'expectedOutput' => new Output(0, ''),
             ],
             'empty, failure 1' => [
-                'serialisedOutput' => '1' . "\n" . '',
+                'serialisedOutput' => "\n" . '1',
                 'expectedOutput' => new Output(1, ''),
             ],
             'empty, failure 2' => [
-                'serialisedOutput' => '2' . "\n" . '',
+                'serialisedOutput' => "\n" . '2',
                 'expectedOutput' => new Output(2, ''),
             ],
             'single line, success' => [
-                'serialisedOutput' => '0' . "\n" . 'content',
+                'serialisedOutput' => 'content' . "\n" . '0',
                 'expectedOutput' => new Output(0, 'content'),
             ],
             'multiple lines, success' => [
-                'expectedContent' => "0\nline1\nline2\n\nline4",
+                'expectedContent' => "line1\nline2\n\nline4\n0",
                 'expectedOutput' => new Output(0, "line1\nline2\n\nline4"),
             ],
         ];
