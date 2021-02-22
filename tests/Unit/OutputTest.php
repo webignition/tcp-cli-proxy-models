@@ -12,11 +12,14 @@ class OutputTest extends TestCase
     /**
      * @dataProvider getExitCodeDataProvider
      */
-    public function testGetExitCode(Output $output, int $expectedExitCode)
+    public function testGetExitCode(Output $output, int $expectedExitCode): void
     {
         self::assertSame($expectedExitCode, $output->getExitCode());
     }
 
+    /**
+     * @return array[]
+     */
     public function getExitCodeDataProvider(): array
     {
         return [
@@ -38,11 +41,14 @@ class OutputTest extends TestCase
     /**
      * @dataProvider getContentDataProvider
      */
-    public function testGetContent(Output $output, string $expectedContent)
+    public function testGetContent(Output $output, string $expectedContent): void
     {
         self::assertSame($expectedContent, $output->getContent());
     }
 
+    /**
+     * @return array[]
+     */
     public function getContentDataProvider(): array
     {
         return [
@@ -64,11 +70,14 @@ class OutputTest extends TestCase
     /**
      * @dataProvider isSuccessfulDataProvider
      */
-    public function testIsSuccessful(Output $output, bool $expectedIsSuccessful)
+    public function testIsSuccessful(Output $output, bool $expectedIsSuccessful): void
     {
         self::assertSame($expectedIsSuccessful, $output->isSuccessful());
     }
 
+    /**
+     * @return array[]
+     */
     public function isSuccessfulDataProvider(): array
     {
         return [
@@ -90,11 +99,14 @@ class OutputTest extends TestCase
     /**
      * @dataProvider toStringDataProvider
      */
-    public function testToString(Output $output, string $expectedString)
+    public function testToString(Output $output, string $expectedString): void
     {
         self::assertSame($expectedString, $output->__toString());
     }
 
+    /**
+     * @return array[]
+     */
     public function toStringDataProvider(): array
     {
         return [
@@ -124,11 +136,14 @@ class OutputTest extends TestCase
     /**
      * @dataProvider fromStringDataProvider
      */
-    public function testFromString(string $serialisedOutput, Output $expectedOutput)
+    public function testFromString(string $serialisedOutput, Output $expectedOutput): void
     {
         self::assertEquals($expectedOutput, Output::fromString($serialisedOutput));
     }
 
+    /**
+     * @return array[]
+     */
     public function fromStringDataProvider(): array
     {
         return [

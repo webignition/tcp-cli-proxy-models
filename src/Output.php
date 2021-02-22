@@ -41,7 +41,7 @@ class Output
         return 0 === $this->exitCode;
     }
 
-    public function __toString()
+    public function __toString(): string
     {
         return $this->content . "\n" . (string) $this->exitCode;
     }
